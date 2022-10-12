@@ -28,6 +28,36 @@ namespace Ensenable.Controllers
             return View();
         }
 
+        public IActionResult Tutorial1()
+        {
+            return View();
+        }
+
+        public IActionResult Tutorial2()
+        {
+            return View();
+        }
+
+        public IActionResult Tutorial3()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
