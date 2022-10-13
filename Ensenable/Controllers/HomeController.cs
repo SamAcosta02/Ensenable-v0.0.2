@@ -58,6 +58,16 @@ namespace Ensenable.Controllers
             return View();
         }
 
+        public IActionResult Cursos()
+        {
+            return View();
+        }
+
+        public IActionResult CreaCursos()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

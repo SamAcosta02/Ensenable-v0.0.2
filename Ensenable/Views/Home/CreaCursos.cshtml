@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Course List Page";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>One Page Wonder - Start Bootstrap Template</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/css/styles2.css" rel="stylesheet" />
+    <link href="~/css/styles3.css" rel="stylesheet" />
+    <script src="~/js/scripts.js"></script>
+</head>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="../"><img src="~/images/logo.svg" alt="..." /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="/Home/Register">Registrarse</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/Login">Iniciar Sesion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/About">Acerca de Nosotros</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<br />
+<br />
+<br />
+
+<section class="py-5">
+    <div class="container px-5">
+        <h1 class="fw-bolder fs-5 mb-4">Crea tu curso</h1>
+        <div class="card border-0 shadow rounded-3 overflow-hidden">
+            <div class="card-body p-0">
+                <div class="row gx-0">
+                    <div class="col-lg-6 col-xl-5 py-lg-5">
+                        <div class="p-4 p-md-5">
+                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                            <div class="h2 fw-bolder">Facil y sencillo.</div>
+                            <p>Llena los campos que se presentan a continuacion. Tu decides cuantos temas habra, cada tema tiene su quiz con preguntas y respuestas que tu creas.</p>
+                            <a class="stretched-link text-decoration-none" href="#Campos">
+                                Comienza a crear
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog" style="background-image: url('https://static.helpjuice.com/helpjuice_production/uploads/upload/image/4752/direct/1597678311691-Explicit%20Knowledge.jpg')"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Campos">
+    <h1 class="fw-bolder fs-5 mb-4" style="text-align:center">Llena los siguientes campos requeridos</h1>
+    <div class="card" style="width:65%; margin:auto">
+        <div class="card-body">
+            <form asp-action="Guardar" asp-controller="Curso" method="post">
+                <div class="form-group">
+                    <label for="IdAlumno">Id Alumno:</label>
+                    <input type="text" class="form-control" id="txtIdAlumno">
+                </div>
+                <div class="form-group">
+                    <label for="Nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="Ciudad">Ciudad:</label>
+                    <input type="text" class="form-control" id="txtCiudad">
+                </div>
+                <div class="form-group">
+                    <label for="Edad">Edad:</label>
+                    <input type="text" class="form-control" id="txtEdad">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark py-4 mt-auto">
+    <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+            <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ensenable 2022</div></div>
+            <div class="col-auto">
+                <a class="link-light small" href="#!">Privacy</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="#!">Terms</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="#!">Contact</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
