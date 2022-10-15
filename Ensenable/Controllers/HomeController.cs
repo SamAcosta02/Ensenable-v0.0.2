@@ -1,4 +1,5 @@
 ﻿using Ensenable.Models;
+using Ensenable.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,6 +13,8 @@ namespace Ensenable.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+        CursoDatos cursodatos = new CursoDatos();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -66,6 +69,12 @@ namespace Ensenable.Controllers
         public IActionResult CreaCursos()
         {
             return View();
+        }
+
+        public IActionResult ListarCursos()
+        {
+            var oLista = cursodatos.ListarCursos();
+            return View(oLista);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
