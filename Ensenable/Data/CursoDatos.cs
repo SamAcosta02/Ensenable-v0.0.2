@@ -89,5 +89,44 @@ namespace Ensenable.Data
             return flag;
         }
 
+        public bool PublicarCurso(CourseModel oCourse)
+        {
+            bool flag = false;
+            var con = new Conexion();
+
+            string publicar = "CALL sp_publish_course (" + oCourse.IdCourse + ")";
+            NpgsqlCommand com = new NpgsqlCommand(publicar, con.OpenCon());
+            com.ExecuteNonQuery();
+            flag = true;
+            con.CloseCon();
+            return flag;
+        }
+
+        public bool DesPublicarCurso(CourseModel oCourse)
+        {
+            bool flag = false;
+            var con = new Conexion();
+
+            string publicar = "CALL sp_unpublish_course (" + oCourse.IdCourse + ")";
+            NpgsqlCommand com = new NpgsqlCommand(publicar, con.OpenCon());
+            com.ExecuteNonQuery();
+            flag = true;
+            con.CloseCon();
+            return flag;
+        }
+
+        public bool EliminarCurso(int IdCourse)
+        {
+            bool flag;
+            var con = new Conexion();
+
+            string sql = "CALL sp_delete_course (" + IdCourse + ")";
+            NpgsqlCommand com = new NpgsqlCommand(sql, con.OpenCon());
+            com.ExecuteNonQuery();
+            flag = true;
+            con.CloseCon();
+            return flag;
+        }
+
     }
 }

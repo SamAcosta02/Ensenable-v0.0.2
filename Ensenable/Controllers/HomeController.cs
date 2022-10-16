@@ -123,6 +123,68 @@ namespace Ensenable.Controllers
                 return View();
         }
 
+        public IActionResult PublicarCurso(int IdCourse)
+        {
+            var oCurso = cursodatos.ObtenerDetalles(IdCourse);
+            return View(oCurso);
+        }
+
+        [HttpPost]
+        public IActionResult PublicarCurso(CourseModel oCourse)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var respuesta = cursodatos.PublicarCurso(oCourse);
+
+            if (respuesta)
+            {
+                return RedirectToAction("ListarCursos");
+            }
+            else
+                return View();
+        }
+
+        public IActionResult DesPublicarCurso(int IdCourse)
+        {
+            var oCurso = cursodatos.ObtenerDetalles(IdCourse);
+            return View(oCurso);
+        }
+
+        [HttpPost]
+        public IActionResult DesPublicarCurso(CourseModel oCourse)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var respuesta = cursodatos.DesPublicarCurso(oCourse);
+
+            if (respuesta)
+            {
+                return RedirectToAction("ListarCursos");
+            }
+            else
+                return View();
+        }
+
+        public IActionResult EliminarCurso(int IdCourse)
+        {
+            var oCourse = cursodatos.ObtenerDetalles(IdCourse);
+            return View(oCourse);
+        }
+        [HttpPost]
+        public IActionResult EliminarCurso(CourseModel oCourse)
+        {
+            var respuesta = cursodatos.EliminarCurso(oCourse.IdCourse);
+
+            if (respuesta)
+            {
+                return RedirectToAction("ListarCursos");
+            }
+            else
+                return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

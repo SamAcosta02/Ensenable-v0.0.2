@@ -161,7 +161,7 @@
                             <img class="card-img-top" src="~/images/c_default.png" alt="..." />
                             <div class="card-body p-4">
                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2">@item.Subject </div>
-                                <a class="text-decoration-none link-dark stretched-link" href="#"><h5 class="card-title mb-3">@item.NameCourse </h5></a>
+                                <a class="text-decoration-none link-dark" href="#"><h5 class="card-title mb-3">@item.NameCourse </h5></a>
                                 <p class="card-text mb-0">@item.Description </p>
                             </div>
                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
@@ -172,6 +172,13 @@
                                             <div class="fw-bold">@item.Author </div>
                                             <div class="text-muted">@item.ReleaseDate </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container" style="padding-bottom: 1rem">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <a asp-action="DesPublicarCurso" class="btn btn-danger" asp-controller="Home" asp-route-IdCourse="@item.IdCourse ">Despublicar Curso</a>
                                     </div>
                                 </div>
                             </div>
@@ -219,10 +226,10 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col text-center">
-                                            <a asp-action="EditarDetallesCurso" class="btn btn-primary" asp-controller="Home" asp-route-IdCourse="@item.IdCourse ">Editar Curso @item.IdCourse</a>
+                                            <a asp-action="EditarDetallesCurso" class="btn btn-primary" asp-controller="Home" asp-route-IdCourse="@item.IdCourse ">Editar Curso</a>
                                         </div>
                                         <div class="col text-center">
-                                            <button class="btn btn-success" href="#">Publicar Curso</button>
+                                            <a asp-action="PublicarCurso" class="btn btn-success" asp-controller="Home" asp-route-IdCourse="@item.IdCourse ">Publicar Curso</a>
                                         </div>
                                     </div>
                                 </div>
@@ -230,7 +237,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col text-center">
-                                            <button class="btn btn-danger" href="#">Eliminar Curso</button>
+                                            <a asp-action="EliminarCurso" class="btn btn-danger" asp-controller="Home" asp-route-IdCourse="@item.IdCourse ">Eliminar Curso</a>
                                         </div>
                                     </div>
                                 </div>

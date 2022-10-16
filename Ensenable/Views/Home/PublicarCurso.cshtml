@@ -57,8 +57,8 @@
                     <div class="col-lg-6 col-xl-5 py-lg-5">
                         <div class="p-4 p-md-5">
                             <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
-                            <div class="h2 fw-bolder">Cambia Los detalles generales de tu curso.</div>
-                            <p>Aqui puedes cambiar el nombre, la descripcion y el autor del curso. Necesitas cambiar otra cosa?</p>
+                            <div class="h2 fw-bolder">Publica el Curso.</div>
+                            <p>Aqui puedes publicar el curso. Recuerda estar seguro que todo este en orden. Necesitas cambiar otra cosa?</p>
                             <div class="dropdown dropend">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     Dropdown button
@@ -78,39 +78,46 @@
     </div>
 </section>
 
-<section id="Campos">
-    <h1 class="fw-bolder fs-5 mb-4" style="text-align:center">Actualice la informacion sobre su curso</h1>
-    <div class="card" style="width:65%; margin:auto">
-        <div class="card-body">
-            <form asp-action="EditarDetallesCurso" asp-controller="Home" method="post">
-                <div class="form-group">
-                    <label for="NameCourse">ID del Curso:</label>
-                    <input asp-for="IdCourse" type="text" class="form-control" id="txtIdCourse" readonly>
-                    <label for="NameCourse">Fecha Publicacion:</label>
-                    <input asp-for="ReleaseDate" type="text" class="form-control" id="txtIdCourse" readonly>
-                    <label for="NameCourse">Esta Publicado?:</label>
-                    <input asp-for="IsPublished" type="text" class="form-control" id="txtIdCourse" readonly>
+<section id="DeseaPublicar">
+    <h1 class="fw-bolder fs-5 mb-4" style="text-align:center">Desea Publicar el siguiente curso?</h1>
+    <div class="card" style="width: 20%; margin: auto">
+        <form asp-action="PublicarCurso" asp-controller="Home" method="post" style="display: inline-block">
+            <div class="form-group">
+                <input asp-for="NameCourse" type="hidden" class="form-control" id="txtNameCourse">
+                <input asp-for="IdCourse" type="hidden" class="form-control" id="txtNameCourse">
+                <input asp-for="Subject" type="hidden" class="form-control" id="txtNameCourse">
+                <input asp-for="Description" type="hidden" class="form-control" id="txtNameCourse">
+                <input asp-for="Author" type="hidden" class="form-control" id="txtNameCourse">
+                <input asp-for="ReleaseDate" type="hidden" class="form-control" id="txtNameCourse">
+                <input asp-for="IsPublished" type="hidden" class="form-control" id="txtNameCourse">
+                    <div class="card h-100 shadow border-0" style="width: 100%; margin: auto">
+                        <img class="card-img-top" src="~/images/c_default.png" alt="..." />
+                        <div class="card-body p-4">
+                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">@Model.Subject </div>
+                            <a class="text-decoration-none link-dark stretched-link" href="#"><h5 class="card-title mb-3">@Model.NameCourse </h5></a>
+                            <p class="card-text mb-0">@Model.Description </p>
+                        </div>
+                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                            <div class="d-flex align-items-end justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle me-3" src="~/images/a_default.png" alt="..." />
+                                    <div class="small">
+                                        <div class="fw-bold">@Model.Author </div>
+                                        <div class="text-muted">@Model.ReleaseDate </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="container">
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-primary">Publicar Curso</button>
+                    <a class="btn btn-danger" href="ListarCursos">No</a>
                 </div>
-                <div class="form-group">
-                    <label for="NameCourse">Nombre del Curso:</label>
-                    <input asp-for="NameCourse" type="text" class="form-control" id="txtNameCourse">
-                </div>
-                <div class="form-group">
-                    <label for="NameCourse">Nombre del Sujeto :</label>
-                    <input asp-for="Subject" type="text" class="form-control" id="txtSubject">
-                </div>
-                <div class="form-group">
-                    <label for="NameCourse">Descripcion Breve del Curso:</label>
-                    <input asp-for="Description" type="text" class="form-control" id="txtDescription">
-                </div>
-                <div class="form-group">
-                    <label for="NameCourse">Autor del Curso:</label>
-                    <input asp-for="Author" type="text" class="form-control" id="txtAuthor">
-                </div>
-                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-            </form>
-        </div>
-    </div>
+            </div>
+        </form>
+    </div>    
 </section>
 
 <!-- Bootstrap core JS-->
