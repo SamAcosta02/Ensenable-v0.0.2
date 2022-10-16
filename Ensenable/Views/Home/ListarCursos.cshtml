@@ -145,32 +145,99 @@
 
 <section class="py-5" id="Cursos">
     <div class="container px-5">
-        <h2 class="fw-bolder fs-5 mb-4">Lista de Cursos</h2>
+        <h2 class="fw-bolder fs-5 mb-4">Lista de Cursos Publicados</h2>
         <div class="row gx-5">
             <!--Aqui van los cursos el for each, Este es solo un ejemplo-->
             @foreach (var item in Model)
             {
-                <div class="col-lg-4 mb-5">
-                    <div class="card h-100 shadow border-0">
-                        <img class="card-img-top" src="~/images/c_default.png" alt="..." />
-                        <div class="card-body p-4">
-                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">@item.Subject </div>
-                            <a class="text-decoration-none link-dark stretched-link" href="#"><h5 class="card-title mb-3">@item.NameCourse </h5></a>
-                            <p class="card-text mb-0">@item.Description </p>
-                        </div>
-                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                            <div class="d-flex align-items-end justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle me-3" src="~/images/a_default.png" alt="..." />
-                                    <div class="small">
-                                        <div class="fw-bold">@item.Author </div>
-                                        <div class="text-muted">@item.ReleaseDate </div>
+                @if (item.IsPublished == "False")
+                {
+
+                }
+                else
+                {
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="~/images/c_default.png" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">@item.Subject </div>
+                                <a class="text-decoration-none link-dark stretched-link" href="#"><h5 class="card-title mb-3">@item.NameCourse </h5></a>
+                                <p class="card-text mb-0">@item.Description </p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3" src="~/images/a_default.png" alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">@item.Author </div>
+                                            <div class="text-muted">@item.ReleaseDate </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-5" id="Cursos No Publicados">
+    <div class="container px-5">
+        <h2 class="fw-bolder fs-5 mb-4">Lista de Cursos No Publicados</h2>
+        <div class="row gx-5">
+            <!--Aqui van los cursos el for each, Este es solo un ejemplo-->
+            @foreach (var item in Model)
+            {
+                @if (item.IsPublished == "True")
+                {
+
+                }
+                else
+                {
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="~/images/c_workdefault.png" alt="Work In Progress Course" />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">@item.Subject </div>
+                                <h5 class="card-title mb-3">@item.NameCourse </h5>
+                                <p class="card-text mb-0">@item.Description </p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3" src="~/images/a_default.png" alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">@item.Author </div>
+                                            <div class="text-muted">@item.ReleaseDate </div>
+                                            <div class="text-muted">COURSE ID: @item.IdCourse </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <a asp-action="EditarDetallesCurso" class="btn btn-primary" asp-controller="Home" asp-route-IdCourse="@item.IdCourse ">Editar Curso @item.IdCourse</a>
+                                        </div>
+                                        <div class="col text-center">
+                                            <button class="btn btn-success" href="#">Publicar Curso</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <button class="btn btn-danger" href="#">Eliminar Curso</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                }
             }
         </div>
     </div>

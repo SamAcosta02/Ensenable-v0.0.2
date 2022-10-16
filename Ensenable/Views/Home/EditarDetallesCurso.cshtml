@@ -1,6 +1,6 @@
 ﻿@model CourseModel
 @{
-    ViewData["Title"] = "Create Course Page";
+    ViewData["Title"] = "Edit Course Details Page";
 }
 
 <head>
@@ -24,6 +24,7 @@
     <link href="~/css/styles3.css" rel="stylesheet" />
     <script src="~/js/scripts.js"></script>
 </head>
+
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -49,19 +50,25 @@
 
 <section class="py-5">
     <div class="container px-5">
-        <h1 class="fw-bolder fs-5 mb-4">Crea tu curso</h1>
+        <h1 class="fw-bolder fs-5 mb-4">Desarrollo Del Curso</h1>
         <div class="card border-0 shadow rounded-3 overflow-hidden">
             <div class="card-body p-0">
                 <div class="row gx-0">
                     <div class="col-lg-6 col-xl-5 py-lg-5">
                         <div class="p-4 p-md-5">
                             <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
-                            <div class="h2 fw-bolder">Facil y sencillo.</div>
-                            <p>Llena los campos que se presentan a continuacion. Tu decides cuantos temas habra, cada tema tiene su quiz con preguntas y respuestas que tu creas.</p>
-                            <a class="stretched-link text-decoration-none" href="#Campos">
-                                Comienza a crear
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
+                            <div class="h2 fw-bolder">Cambia Los detalles generales de tu curso.</div>
+                            <p>Aqui puedes cambiar el nombre, la descripcion y el autor del curso. Necesitas cambiar otra cosa?</p>
+                            <div class="dropdown dropend">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Editar Actividades</a></li>
+                                    <li><a class="dropdown-item" href="#">Editar Preguntas</a></li>
+                                    <li><a class="dropdown-item" href="#">Editar Respuestas</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog" style="background-image: url('https://static.helpjuice.com/helpjuice_production/uploads/upload/image/4752/direct/1597678311691-Explicit%20Knowledge.jpg')"></div></div>
@@ -72,10 +79,18 @@
 </section>
 
 <section id="Campos">
-    <h1 class="fw-bolder fs-5 mb-4" style="text-align:center">Llena los siguientes campos requeridos</h1>
+    <h1 class="fw-bolder fs-5 mb-4" style="text-align:center">Actualice la informacion sobre su curso</h1>
     <div class="card" style="width:65%; margin:auto">
         <div class="card-body">
-            <form asp-action="CrearCurso" asp-controller="Home" method="post">
+            <form asp-action="EditarDetallesCurso" asp-controller="Home" method="post">
+                <div class="form-group">
+                    <label for="NameCourse">ID del Curso:</label>
+                    <input asp-for="IdCourse" type="hidden" class="form-control" id="txtIdCourse">
+                    <label for="NameCourse">Fecha Publicacion:</label>
+                    <input asp-for="ReleaseDate" type="hidden" class="form-control" id="txtIdCourse">
+                    <label for="NameCourse">Esta Publicado?:</label>
+                    <input asp-for="IsPublished" type="hidden" class="form-control" id="txtIdCourse">
+                </div>
                 <div class="form-group">
                     <label for="NameCourse">Nombre del Curso:</label>
                     <input asp-for="NameCourse" type="text" class="form-control" id="txtNameCourse">
@@ -92,26 +107,11 @@
                     <label for="NameCourse">Autor del Curso:</label>
                     <input asp-for="Author" type="text" class="form-control" id="txtAuthor">
                 </div>
-                <button type="submit" class="btn btn-primary">Crear Curso</button>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
             </form>
         </div>
     </div>
 </section>
-
-<footer class="bg-dark py-4 mt-auto">
-    <div class="container px-5">
-        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-            <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ensenable 2022</div></div>
-            <div class="col-auto">
-                <a class="link-light small" href="#!">Privacy</a>
-                <span class="text-white mx-1">&middot;</span>
-                <a class="link-light small" href="#!">Terms</a>
-                <span class="text-white mx-1">&middot;</span>
-                <a class="link-light small" href="#!">Contact</a>
-            </div>
-        </div>
-    </div>
-</footer>
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

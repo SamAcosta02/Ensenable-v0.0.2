@@ -101,6 +101,29 @@ namespace Ensenable.Controllers
             }
         }
 
+        public IActionResult EditarDetallesCurso(int IdCourse)
+        {
+            var oCurso = cursodatos.ObtenerDetalles(IdCourse);
+            return View(oCurso);
+        }
+
+        [HttpPost]
+        public IActionResult EditarDetallesCurso(CourseModel oCourse)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var respuesta = cursodatos.EditarDetalleCurso(oCourse);
+
+            if (respuesta)
+            {
+                return RedirectToAction("ListarCursos");
+            }
+            else
+                return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
