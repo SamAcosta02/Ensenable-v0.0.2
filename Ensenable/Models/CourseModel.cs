@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Ensenable.Models;
 using System.Threading.Tasks;
 
 namespace Ensenable.Models
@@ -18,5 +19,7 @@ namespace Ensenable.Models
         public string Author { get; set; }
 
         public string ReleaseDate { get; set; }
+
+        public string IsPublished { get; set; }
     }
 }

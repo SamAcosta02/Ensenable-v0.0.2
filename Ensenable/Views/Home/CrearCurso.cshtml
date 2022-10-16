@@ -75,24 +75,24 @@
     <h1 class="fw-bolder fs-5 mb-4" style="text-align:center">Llena los siguientes campos requeridos</h1>
     <div class="card" style="width:65%; margin:auto">
         <div class="card-body">
-            <form asp-action="Guardar" asp-controller="Curso" method="post">
+            <form asp-action="CrearCurso" asp-controller="Home" method="post">
                 <div class="form-group">
-                    <label for="IdAlumno">Id Alumno:</label>
-                    <input type="text" class="form-control" id="txtIdAlumno">
+                    <label for="NameCourse">Nombre del Curso:</label>
+                    <input asp-for="NameCourse" type="text" class="form-control" id="txtNameCourse">
                 </div>
                 <div class="form-group">
-                    <label for="Nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre">
+                    <label for="NameCourse">Nombre del Sujeto :</label>
+                    <input asp-for="Subject" type="text" class="form-control" id="txtSubject">
                 </div>
                 <div class="form-group">
-                    <label for="Ciudad">Ciudad:</label>
-                    <input type="text" class="form-control" id="txtCiudad">
+                    <label for="NameCourse">Descripcion Breve del Curso:</label>
+                    <input asp-for="Description" type="text" class="form-control" id="txtDescription">
                 </div>
                 <div class="form-group">
-                    <label for="Edad">Edad:</label>
-                    <input type="text" class="form-control" id="txtEdad">
+                    <label for="NameCourse">Autor del Curso:</label>
+                    <input asp-for="Author" type="text" class="form-control" id="txtAuthor">
                 </div>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary">Crear Curso</button>
             </form>
         </div>
     </div>

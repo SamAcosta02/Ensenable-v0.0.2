@@ -71,10 +71,34 @@ namespace Ensenable.Controllers
             return View();
         }
 
+        //Controladores con backend
+
         public IActionResult ListarCursos()
         {
             var oLista = cursodatos.ListarCursos();
             return View(oLista);
+        }
+
+        public IActionResult CrearCurso()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult CrearCurso(CourseModel oCourse)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var resp = cursodatos.CrearCurso(oCourse);
+            if(resp)
+            {
+                return RedirectToAction("ListarCursos");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
