@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<main class="flex-shrink-0">
+    <!-- Header-->
+    <header class="bg-dark py-5" id="page-top">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center justify-content-center">
+                <div class="col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="my-5 text-center text-xl-start">
+                        <h1 class="display-5 fw-bolder text-white mb-2">Transmite tu conocimiento facil y rapido.</h1>
+                        <p class="lead fw-normal text-white-50 mb-4">Crea cursos para que personas puedan adquirir conocimiento de ti! No permitas que el conocimiento se pierda.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Crea un cruso</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="#help">Como crear un curso</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="#help">Ver cursos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="~/images/Olearning.png" alt="..." /></div>
+            </div>
+        </div>
+    </header>
+    <!-- Features section-->
+    <section class="py-5" id="features">
+        <div class="container px-5 my-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Una mejor manera de transmitir tu conocimiento.</h2></div>
+                <div class="col-lg-8">
+                    <div class="row gx-5 row-cols-1 row-cols-md-2">
+                        <div class="col mb-5 h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                            <h2 class="h5">Organizacion</h2>
+                            <p class="mb-0">Manten una coleccion de los cursos que ya se han creado anteriormente.</p>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                            <h2 class="h5">Adaptable</h2>
+                            <p class="mb-0">Crea cursos sobre cualquier tema, sin importar lo que quieras transmitir, lo puedes llevar a cabo.</p>
+                        </div>
+                        <div class="col mb-5 mb-md-0 h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                            <h2 class="h5">Controlable</h2>
+                            <p class="mb-0">Tu decide que tan profundo y que tan largo es tu curso.</p>
+                        </div>
+                        <div class="col h-100">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                            <h2 class="h5">Escalable</h2>
+                            <p class="mb-0">Crea mas cursos si lo necesitas, no hay un limite.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog preview section-->
+    <section class="py-5" id="help">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="text-center">
+                        <h2 class="fw-bolder">Necesitas ayuda?</h2>
+                        <p class="lead fw-normal text-muted mb-5">Sigue nuestras instrucciones detalladas para llevar a cabo tus cursos. Estamos aqui para ayudarte.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5">
+                    <div class="card h-100 shadow border-0">
+                        <img class="card-img-top" src="~/images/h_createCourse.png" alt="..." />
+                        <div class="card-body p-4">
+                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Contenido</div>
+                            <a class="text-decoration-none link-dark stretched-link" href="/Home/Tutorial1"><h5 class="card-title mb-3">Como estructurar un curso</h5></a>
+                            <p class="card-text mb-0">Esta guia te muestra como puedes de inicio a fin crear el contenido de un curso nuevo, para aprovechar la plataforma lo mejor posible.</p>
+                        </div>
+                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                            <div class="d-flex align-items-end justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle me-3" src="~/images/a_sam.png" alt="..." />
+                                    <div class="small">
+                                        <div class="fw-bold">Samuel Acosta</div>
+                                        <div class="text-muted">Septiembre 30, 2022 &middot; lectura de 6 min.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card h-100 shadow border-0">
+                        <img class="card-img-top" src="~/images/h_uploadCourse.png" alt="..." />
+                        <div class="card-body p-4">
+                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Curso</div>
+                            <a class="text-decoration-none link-dark stretched-link" href="/Home/Tutorial2"><h5 class="card-title mb-3">Crear y publicar un curso</h5></a>
+                            <p class="card-text mb-0">Si ya tiene el contenido del curso que desea, es tiempo de crear el curso y publicarlo para que otras personas gozen de su conocimiento.</p>
+                        </div>
+                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                            <div class="d-flex align-items-end justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle me-3" src="~/images/a_sam.png" alt="..." />
+                                    <div class="small">
+                                        <div class="fw-bold">Samuel Acosta</div>
+                                        <div class="text-muted">Septiembre 30, 2022 &middot; lectura de 6 min.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card h-100 shadow border-0">
+                        <img class="card-img-top" src="~/images/h_analitic.png" alt="..." />
+                        <div class="card-body p-4">
+                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Seguimiento</div>
+                            <a class="text-decoration-none link-dark stretched-link" href="/Home/Tutorial3"><h5 class="card-title mb-3">Revisar cuantos alumnos estan en su curso y sus aciertos/errores.</h5></a>
+                            <p class="card-text mb-0">Esta guia te muestra como ver cuantas personas estan llevando su curso y cuales han sido sus errores y aciertos.</p>
+                        </div>
+                        <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                            <div class="d-flex align-items-end justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle me-3" src="~/images/a_sam.png" alt="..." />
+                                    <div class="small">
+                                        <div class="fw-bold">Samuel Acosta</div>
+                                        <div class="text-muted">Septiembre 30, 2022 &middot; lectura de 6 min.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

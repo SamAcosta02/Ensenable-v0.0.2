@@ -1,0 +1,23 @@
+﻿@using Ensenable.Datos;
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<section style="height:83.7vh">
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+@{
+        if (TempData.ContainsKey("LogOut") && TempData["LogOut"].Equals(1)){
+            <p>HAS CERRADO SESION</p>
+        }else if(ViewBag.Session == null){
+            <p>NO HAY NADIE INICIADO</p>
+    }else{
+        UsersDatos usersDatos = new UsersDatos();
+        var oUser = usersDatos.Obtener(ViewBag.Session);
+            <p>current session id: @oUser.id_user</p>
+            <p>current session account: @oUser.user_email</p>
+    }
+}
+</section>

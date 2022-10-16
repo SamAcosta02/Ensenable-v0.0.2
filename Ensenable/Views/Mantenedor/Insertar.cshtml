@@ -1,0 +1,42 @@
+﻿@model Ensenable.Models.UsersModel
+
+@{
+    ViewData["Title"] = "Insertar";
+}
+<body>
+    <div class="container">
+        <h1>Insertar</h1>
+        <div>
+            <h1>Holaaaa</h1>
+            <form asp-action="Insertar" asp-controller="Mantenedor" method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input asp-for="user_name" type="text" class="form-control" id="name">
+                </div>
+                <div class="mb-3">
+                    <label for="firstlastname" class="form-label">Apellido Paterno</label>
+                    <input asp-for="user_firstlastname" type="text" class="form-control" id="firstlastname">
+                </div>
+                <div class="mb-3">
+                    <label for="secondlastname" class="form-label">Apellido Materno</label>
+                    <input asp-for="user_secondlastname" type="text" class="form-control" id="secondlastname">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input asp-for="user_email" type="email" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input asp-for="user_password" type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+
+        <div>
+            <a asp-action="Listar" asp-controller="Mantenedor">Back to List</a>
+        </div>
+    </div>
+</body>

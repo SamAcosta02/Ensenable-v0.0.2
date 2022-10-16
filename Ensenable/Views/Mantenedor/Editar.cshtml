@@ -1,0 +1,86 @@
+﻿@model Ensenable.Models.UsersModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+<div class="container">
+
+<h1>Editar</h1>
+
+<h4>UsersModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar" asp-controller="Mantenedor" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group mb-3">
+                <label for="id_user" class="control-label">id_user (You cannot change it)</label>
+                <input asp-for="id_user" type="text" class="form-control"  readonly>
+            </div>
+                <div class="form-group mb-3">
+                <label asp-for="user_name" class="control-label"></label>
+                <input asp-for="user_name" class="form-control" />
+                <span asp-validation-for="user_name" class="text-danger"></span>
+            </div>
+                <div class="form-group mb-3">
+                <label asp-for="user_firstlastname" class="control-label"></label>
+                <input asp-for="user_firstlastname" class="form-control" />
+                <span asp-validation-for="user_firstlastname" class="text-danger"></span>
+            </div>
+                <div class="form-group mb-3">
+                <label asp-for="user_secondlastname" class="control-label"></label>
+                <input asp-for="user_secondlastname" class="form-control" />
+                <span asp-validation-for="user_secondlastname" class="text-danger"></span>
+            </div>
+                <div class="form-group mb-3">
+                    <label asp-for="user_email" class="control-label">user_email (You cannot change it)</label>
+                <input asp-for="user_email" class="form-control" readonly/>
+                <span asp-validation-for="user_email" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="user_password" class="control-label"></label>
+                <input asp-for="user_password" class="form-control" />
+                <span asp-validation-for="user_password" class="text-danger"></span>
+            </div>
+                <div class="form-group mb-3">
+                    <label asp-for="user_role" class="control-label">user_role (1 admin, 2 maestro, 3 alumno)</label>
+                    <input asp-for="user_role" class="form-control"/>
+                    <span asp-validation-for="user_role" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    @if(Model.user_status == "False"){
+                        <input asp-for="user_status" type="radio" id="no" value="false" checked />
+                        <label class="form-label" for="no">Inactive</label>
+                        <span asp-validation-for="user_status"></span>
+
+                        <input asp-for="user_status" type="radio" id="yes" value="true" />
+                        <label class="form-label" for="yes">Accept</label>
+                        <span asp-validation-for="user_status"></span>
+                    }else{
+                        <input asp-for="user_status" type="radio" id="no" value="false" />
+                        <label class="form-label" for="no">Inactive</label>
+                        <span asp-validation-for="user_status"></span>
+
+                        <input asp-for="user_status" type="radio" id="yes" value="true" checked/>
+                        <label class="form-label" for="yes">Active</label>
+                        <span asp-validation-for="user_status"></span>
+                    }
+                    
+
+                    
+                </div>
+                <div class="form-group mb-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+        <a asp-action="Listar" asp-controller="Mantenedor">Back to List</a>
+</div>
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

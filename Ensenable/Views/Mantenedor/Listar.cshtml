@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<body >
+    <div class="container">
+
+
+<h1>Listar</h1>
+<a asp-action="Insertar" asp-controller="Mantenedor" class="btn btn-success"><i class="bi bi-plus-square"></i> Insertar Alumno</a>
+
+<div class="card" style="width:100%">
+
+    <table>
+        <thead class="btn-primary">
+            <tr>
+                <th>Id Alumno</th>
+                <th>Nombre </th>
+                <th>Apellido P</th>
+                <th>Apellido m</th>
+                <th>correo</th>
+                <th>constra</th>
+                        <th>role</th>
+                        <th>status</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td> @item.id_user  </td>
+                    <td> @item.user_name </td>
+                    <td> @item.user_firstlastname </td>
+                    <td> @item.user_secondlastname </td>
+                    <td> @item.user_email </td>
+                    <td> @item.user_password </td>
+                     @if (item.user_role == 1){
+                         <td>admin</td>
+                         }
+                     @if(item.user_role == 2){
+                         <td>maestro</td>
+                          }
+                            @if (item.user_role == 3)
+                            {
+                                <td>alumno</td>
+                            }
+                            @if (item.user_status == "False")
+                            {
+                                <td>inactive</td>
+                            }else{
+                                <td>active</td>
+
+                            }
+                            <td> <a asp-action="Editar" class="btn btn-success" asp-controller="Mantenedor" asp-route-id_user="@item.id_user "><i class="bi bi-x-square"></i> Editar</a> </td>
+                            <td> <a asp-action="Eliminar" class="btn btn-danger" asp-controller="Mantenedor" asp-route-id_user="@item.id_user "><i class="bi bi-x-square"></i> Eliminar</a> </td>
+                            
+                        </tr>
+            }
+        </tbody>
+    </table>
+        </div>
+    </div>
+</body>
