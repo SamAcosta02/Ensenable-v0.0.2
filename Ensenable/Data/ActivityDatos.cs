@@ -86,7 +86,18 @@ namespace Ensenable.Data
             return flag;
         }
 
+        public bool EliminarActivity(int IdActivity)
+        {
+            bool flag;
+            var con = new Conexion();
 
+            string sql = "CALL sp_delete_activity (" + IdActivity + ")";
+            NpgsqlCommand com = new NpgsqlCommand(sql, con.OpenCon());
+            com.ExecuteNonQuery();
+            flag = true;
+            con.CloseCon();
+            return flag;
+        }
 
     }
 }

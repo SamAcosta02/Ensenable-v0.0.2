@@ -193,6 +193,9 @@ namespace Ensenable.Controllers
         public IActionResult ListActivities(int IdCourse)
         {
             var oLista = activitydatos.ListarActivities(IdCourse);
+            int length = oLista.Count();
+
+            TempData["curso"] = IdCourse;
             return View(oLista);
         }
 
@@ -218,7 +221,9 @@ namespace Ensenable.Controllers
 
         public IActionResult CrearActivity(int IdCourse)
         {
-            return View(IdCourse);
+            ActivityModel oActivity = new ActivityModel();
+            oActivity.IdCourse = IdCourse;
+            return View(oActivity);
         }
 
         [HttpPost]
@@ -235,7 +240,24 @@ namespace Ensenable.Controllers
             }
         }
 
+        public IActionResult EliminarActivity(int IdActivity)
+        {
+            var oActivity = activitydatos.ObtenerDetallesAct(IdActivity);
+            return View(oActivity);
+        }
 
+        [HttpPost]
+        public IActionResult EliminarActivity(ActivityModel oActivity)
+        {
+            var respuesta = activitydatos.EliminarActivity(oActivity.IdActivity);
+
+            if (respuesta)
+            {
+                return RedirectToAction("ListActivities", new { IdCourse = oActivity.IdCourse });
+            }
+            else
+                return View();
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,0 +1,81 @@
+﻿@model ActivityModel
+@{
+    ViewData["Title"] = "Edit Course Details Page";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>One Page Wonder - Start Bootstrap Template</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/css/styles2.css" rel="stylesheet" />
+    <link href="~/css/styles3.css" rel="stylesheet" />
+    <script src="~/js/scripts.js"></script>
+</head>
+
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="../"><img src="~/images/logo.svg" alt="..." /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="/Home/Register">Registrarse</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/Login">Iniciar Sesion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/About">Acerca de Nosotros</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<br />
+<br />
+<br />
+
+<h1 style="text-align: center">Desea Eliminar esta Actividad? </h1>
+
+
+<section id="DeseaPublicar">
+    <h1 class="fw-bolder fs-5 mb-4" style="text-align:center">Recuerda que no se podra recuperar despues.</h1>
+    <div class="card" style="width:65%; margin:auto">
+        <div class="card-body">
+            <form asp-action="EliminarActivity" asp-controller="Home" method="post">
+                <div class="form-group">
+                    <label for="NameCourse">Nombre de la Actividad:</label>
+                    <input asp-for="NameActivity" type="text" class="form-control" id="txtNameActivity" readonly>
+                </div>
+                <div class="form-group">
+                    <input asp-for="IdActivity" type="hidden" class="form-control" id="txtIdActivity">
+                    <input asp-for="IdCourse" type="hidden" class="form-control" id="txtIdCourse">
+                </div>
+                <div class="container">
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-danger">Eliminar Actividad</button>
+                        <a class="btn btn-primary" href="ListarActivites">No</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
