@@ -15,6 +15,7 @@ namespace Ensenable.Controllers
         private readonly ILogger<HomeController> _logger;
 
         CursoDatos cursodatos = new CursoDatos();
+        ActivityDatos activitydatos = new ActivityDatos();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -72,6 +73,8 @@ namespace Ensenable.Controllers
         }
 
         //Controladores con backend
+
+        // CURSOS
 
         public IActionResult ListarCursos()
         {
@@ -184,6 +187,55 @@ namespace Ensenable.Controllers
             else
                 return View();
         }
+
+        // ACTIVIDADES
+
+        public IActionResult ListActivities(int IdCourse)
+        {
+            var oLista = activitydatos.ListarActivities(IdCourse);
+            return View(oLista);
+        }
+
+
+        public IActionResult EditarDetallesAct(int IdActivity)
+        {
+            var oActivity = activitydatos.ObtenerDetallesAct(IdActivity);
+            return View(oActivity);
+        }
+
+        [HttpPost]
+        public IActionResult EditarDetallesAct(ActivityModel oActivity)
+        {
+            var respuesta = activitydatos.EditarDetalleActivity(oActivity);
+
+            if (respuesta)
+            {
+                return RedirectToAction("ListActivities", new { IdCourse = oActivity.IdCourse});
+            }
+            else
+                return View();
+        }
+
+        public IActionResult CrearActivity(int IdCourse)
+        {
+            return View(IdCourse);
+        }
+
+        [HttpPost]
+        public IActionResult CrearActivity(ActivityModel oActivity)
+        {
+            var resp = activitydatos.CrearActivity(oActivity);
+            if (resp)
+            {
+                return RedirectToAction("ListActivities", new { IdCourse = oActivity.IdCourse });
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

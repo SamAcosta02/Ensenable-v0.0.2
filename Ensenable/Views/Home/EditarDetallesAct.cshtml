@@ -1,4 +1,4 @@
-﻿@model CourseModel
+﻿@model ActivityModel
 @{
     ViewData["Title"] = "Edit Course Details Page";
 }
@@ -50,7 +50,7 @@
 
 <section class="py-5">
     <div class="container px-5">
-        <h1 class="fw-bolder fs-5 mb-4">Desarrollo Del Curso</h1>
+        <h1 class="fw-bolder fs-5 mb-4">Desarrollo de la Actividad</h1>
         <div class="card border-0 shadow rounded-3 overflow-hidden">
             <div class="card-body p-0">
                 <div class="row gx-0">
@@ -59,7 +59,7 @@
                             <div class="badge bg-primary bg-gradient rounded-pill mb-2">Paso 1</div>
                             <div class="h2 fw-bolder">Cambia Los detalles generales de tu curso.</div>
                             <p>Aqui puedes cambiar el nombre, la descripcion y el autor del curso. <b>¿Cual es el siguiente paso?</b></p>
-                            <a asp-action="ListActivities" class="btn btn-primary" asp-controller="Home" asp-route-IdCourse="@Model.IdCourse ">Agregar/Editar Actividades</a>
+                            <a asp-action="#" class="btn btn-primary" asp-controller="Home" asp-route-IdCourse="@Model.IdActivity ">Editar Respuestas</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog" style="background-image: url('https://static.helpjuice.com/helpjuice_production/uploads/upload/image/4752/direct/1597678311691-Explicit%20Knowledge.jpg')"></div></div>
@@ -70,33 +70,25 @@
 </section>
 
 <section id="Campos">
-    <h1 class="fw-bolder fs-5 mb-4" style="text-align:center">Actualice la informacion sobre su curso</h1>
+    <h1 class="fw-bolder fs-5 mb-4" style="text-align:center">Actualice la informacion sobre su Actividad</h1>
     <div class="card" style="width:65%; margin:auto">
         <div class="card-body">
-            <form asp-action="EditarDetallesCurso" asp-controller="Home" method="post">
+            <form asp-action="EditarDetallesAct" asp-controller="Home" method="post">
                 <div class="form-group">
-                    <label for="NameCourse">ID del Curso:</label>
+                    <label for="NameCourse">ID de la Actividad:</label>
+                    <input asp-for="IdActivity" type="text" class="form-control" id="txtIdActivity" readonly>
+                    <label for="NameCourse">ID del Curso del que forma parte:</label>
                     <input asp-for="IdCourse" type="text" class="form-control" id="txtIdCourse" readonly>
-                    <label for="NameCourse">Fecha Publicacion:</label>
-                    <input asp-for="ReleaseDate" type="text" class="form-control" id="txtIdCourse" readonly>
-                    <label for="NameCourse">Esta Publicado?:</label>
-                    <input asp-for="IsPublished" type="text" class="form-control" id="txtIdCourse" readonly>
+                    <label for="NameCourse">Numero de la Actividad:</label>
+                    <input asp-for="NumActivity" type="text" class="form-control" id="txtNumActivity" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="NameCourse">Nombre del Curso:</label>
-                    <input asp-for="NameCourse" type="text" class="form-control" id="txtNameCourse">
+                    <label for="NameCourse">Nombre de la Actividad:</label>
+                    <input asp-for="NameActivity" type="text" class="form-control" id="txtNameActivity">
                 </div>
                 <div class="form-group">
-                    <label for="NameCourse">Nombre del Sujeto :</label>
-                    <input asp-for="Subject" type="text" class="form-control" id="txtSubject">
-                </div>
-                <div class="form-group">
-                    <label for="NameCourse">Descripcion Breve del Curso:</label>
-                    <input asp-for="Description" type="text" class="form-control" id="txtDescription">
-                </div>
-                <div class="form-group">
-                    <label for="NameCourse">Autor del Curso:</label>
-                    <input asp-for="Author" type="text" class="form-control" id="txtAuthor">
+                    <label for="NameCourse">Instrucciones para el Alumno:</label>
+                    <input asp-for="Instructions" type="text" class="form-control" id="txtInstructions">
                 </div>
                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
             </form>
