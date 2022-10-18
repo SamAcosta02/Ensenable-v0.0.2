@@ -16,6 +16,7 @@ namespace Ensenable.Controllers
 
         CursoDatos cursodatos = new CursoDatos();
         ActivityDatos activitydatos = new ActivityDatos();
+        LectureDatos lecturedatos = new LectureDatos();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -257,6 +258,48 @@ namespace Ensenable.Controllers
             }
             else
                 return View();
+        }
+
+        //LECTURES
+        public IActionResult EditarDetallesLec(int IdActivity)
+        {
+
+            var oLecture = lecturedatos.ObtenerDetallesLectureAct(IdActivity);
+
+            if (oLecture.IdLecture == 0)
+            {
+                var oLista = lecturedatos.ListarEmptyLectures();
+                LectureModel lecture = new LectureModel();
+                lecture = oLista[0];
+                lecture.IdActivity = IdActivity;
+
+                return View(lecture);
+            }
+            else
+            {
+                return View(oLecture);
+            }
+      
+        }
+
+        [HttpPost]
+        public IActionResult EditarDetallesLec(LectureModel oLecture)
+        {
+            var respuesta = lecturedatos.EditarDetalleLecture(oLecture);
+
+            if (respuesta)
+            {
+                return RedirectToAction("ListarCursos");
+            }
+            else
+                return View();
+        }
+
+        // VISTA PARA CUALQUIER CURSO
+
+        public IActionResult Prueba1()
+        {
+            return View();
         }
 
 
