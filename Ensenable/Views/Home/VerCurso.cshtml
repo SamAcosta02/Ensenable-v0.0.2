@@ -1,4 +1,5 @@
-﻿@{
+﻿@model dynamic
+@{
     ViewData["Title"] = "Prueba 1 Page";
 }
 
@@ -47,7 +48,7 @@
 <header class="masthead">
     <div class="container">
         <div class="masthead-subheading">Bienvenido a tu Curso!</div>
-        <div class="masthead-heading text-uppercase">Calculo Diferencial</div>
+        <div class="masthead-heading text-uppercase">@Model.CursoInfo.NameCourse</div>
         <a class="btn btn-primary btn-xl text-uppercase" href="#Temas">A Aprender!</a>
     </div>
 </header>
@@ -95,19 +96,23 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 1-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                
+                @foreach (var lecture in Model.LectureList)
+                {
+                    <!-- Portfolio item 1-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="~/Images/activity.png" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">@lecture.NameLecture </div>
+                            <div class="portfolio-caption-subheading text-muted">Tema 1</div>
                         </div>
-                        <img class="img-fluid" src="~/Images/activity.png" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Limites</div>
-                        <div class="portfolio-caption-subheading text-muted">Tema 1</div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </div>

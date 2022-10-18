@@ -11,6 +11,8 @@ namespace Ensenable.Models
 
         public int IdActivity { get; set; }
 
+        public int IdCourse { get; set; }
+
         public string NombreLecture { get; set; }
 
         public string YtLink { get; set; }

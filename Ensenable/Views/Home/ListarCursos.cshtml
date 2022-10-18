@@ -161,7 +161,7 @@
                             <img class="card-img-top" src="~/images/c_default.png" alt="..." />
                             <div class="card-body p-4">
                                 <div class="badge bg-primary bg-gradient rounded-pill mb-2">@item.Subject </div>
-                                <a class="text-decoration-none link-dark" href="Prueba1"><h5 class="card-title mb-3">@item.NameCourse </h5></a>
+                                <a class="text-decoration-none link-dark" asp-action="VerCurso" asp-controller="Home" asp-route-IdCourse="@item.IdCourse "><h5 class="card-title mb-3">@item.NameCourse </h5></a>
                                 <p class="card-text mb-0">@item.Description </p>
                             </div>
                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">

@@ -2,6 +2,7 @@
 using Ensenable.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Dynamic;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -261,7 +262,7 @@ namespace Ensenable.Controllers
         }
 
         //LECTURES
-        public IActionResult EditarDetallesLec(int IdActivity)
+        public IActionResult EditarDetallesLec(int IdCourse, int IdActivity)
         {
 
             var oLecture = lecturedatos.ObtenerDetallesLectureAct(IdActivity);
@@ -272,6 +273,7 @@ namespace Ensenable.Controllers
                 LectureModel lecture = new LectureModel();
                 lecture = oLista[0];
                 lecture.IdActivity = IdActivity;
+                lecture.IdCourse = IdCourse;
 
                 return View(lecture);
             }
@@ -297,10 +299,17 @@ namespace Ensenable.Controllers
 
         // VISTA PARA CUALQUIER CURSO
 
-        public IActionResult Prueba1()
+        public IActionResult VerCurso(int IdCourse)
         {
-            return View();
+            dynamic cursomodel = new ExpandoObject();
+            var oCurso = cursodatos.ObtenerDetalles(IdCourse);
+
+            cursomodel.CursoInfo = oCurso;
+            cursomodel.LectureList = lecturedatos.ObtenerDetallesLectureCo(IdCourse);
+
+            return View(cursomodel);
         }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

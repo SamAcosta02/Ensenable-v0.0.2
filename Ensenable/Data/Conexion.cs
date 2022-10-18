@@ -11,7 +11,7 @@ namespace Ensenable.Data
         NpgsqlConnection conn = new NpgsqlConnection();
 
         static string servidor = "localhost";
-        static string bd = "EnsenableTest1";
+        static string bd = "Ensenablev1"; //antes era: EnsenableTest1
         static string user = "postgres";
         static string pass = "Medero210965!";
         static string port = "5432";

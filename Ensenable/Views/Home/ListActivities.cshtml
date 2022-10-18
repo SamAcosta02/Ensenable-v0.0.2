@@ -100,7 +100,7 @@
                     <td> <a asp-action="#" class="btn btn-secondary" asp-controller="Home" asp-route-IdActivity="@item.IdActivity ">Agregar</a> </td>
                     <td> <a asp-action="EditarDetallesAct" class="btn btn-outline-success" asp-controller="Home" asp-route-IdActivity="@item.IdActivity ">Editar</a> </td>
                     <td> <a asp-action="EliminarActivity" class="btn btn-danger" asp-controller="Home" asp-route-IdActivity="@item.IdActivity ">Eliminar</a> </td>
-                    <td> <a asp-action="EditarDetallesLec" class="btn btn-outline-primary" asp-controller="Home" asp-route-IdActivity="@item.IdActivity ">Editar</a> </td>
+                    <td> <a asp-action="EditarDetallesLec" class="btn btn-outline-primary" asp-controller="Home" asp-route-IdActivity="@item.IdActivity" asp-route-IdCourse="@item.IdCourse">Editar</a> </td>
                 </tr>
                 }
             </tbody>
