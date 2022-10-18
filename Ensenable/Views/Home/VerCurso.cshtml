@@ -49,7 +49,7 @@
     <div class="container">
         <div class="masthead-subheading">Bienvenido a tu Curso!</div>
         <div class="masthead-heading text-uppercase">@Model.CursoInfo.NameCourse</div>
-        <a class="btn btn-primary btn-xl text-uppercase" href="#Temas">A Aprender!</a>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#portfolio">A Aprender!</a>
     </div>
 </header>
 <!-- Services-->
@@ -95,25 +95,30 @@
             <h3 class="section-subheading text-muted">Accesa al contenido del curso.</h3>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-sm-6 mb-4">
-                
-                @foreach (var lecture in Model.LectureList)
-                {
+            @{ int ctr = 1;
+                string modal = "#portfolioModal";
+            }
+            @foreach (var lecture in Model.LectureList)
+            {
+                string modalFinal = modal + ctr.ToString();
+                <div class="col-lg-4 col-sm-6 mb-4">
                     <!-- Portfolio item 1-->
                     <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="@modalFinal">
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
                             <img class="img-fluid" src="~/Images/activity.png" alt="..." />
                         </a>
                         <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">@lecture.NameLecture </div>
-                            <div class="portfolio-caption-subheading text-muted">Tema 1</div>
+                            <div class="portfolio-caption-heading">@lecture.NombreLecture </div>
+                            <div class="portfolio-caption-subheading text-muted">Tema @ctr</div>
                         </div>
                     </div>
-                }
-            </div>
+
+                </div>
+                ctr++;
+            }
         </div>
     </div>
 </section>
@@ -191,34 +196,41 @@
 </section>
 
 
-<!-- Portfolio item 1 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="~/Images/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase">Aprende Limites</h2>
-                            <p class="item-intro text-muted">Limites</p>
-                            <iframe width="600" height="450" src="https://www.youtube.com/embed/YNstP0ESndU" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <p>
-                                Este video tutorial de Cálculo 1 proporciona una introducción a los límites. Explica cómo evaluar límites por sustitución directa, por factorización y gráficamente.
-                            </p>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Cerrar Tema
-                            </button>
+@{ ctr = 1;
+    string modalget = "portfolioModal";
+}
+@foreach (var lecture in Model.LectureList)
+{
+    string modalFinal = modalget + ctr.ToString();
+    ctr++;
+    <!-- Portfolio item 1 modal popup-->
+    <div class="portfolio-modal modal fade" id="@modalFinal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="~/Images/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">@lecture.NombreLecture</h2>
+                                <p class="item-intro text-muted">@lecture.Purpose</p>
+                                <iframe width="600" height="450" src=@lecture.YtLink title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <p>
+                                    @lecture.Texto
+                                </p>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Cerrar Tema
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
+}
 <footer class="bg-dark py-4 mt-auto">
     <div class="container px-5">
         <div class="row align-items-center justify-content-between flex-column flex-sm-row">

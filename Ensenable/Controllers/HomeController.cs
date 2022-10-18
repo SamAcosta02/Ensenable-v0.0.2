@@ -305,12 +305,11 @@ namespace Ensenable.Controllers
             var oCurso = cursodatos.ObtenerDetalles(IdCourse);
 
             cursomodel.CursoInfo = oCurso;
-            cursomodel.LectureList = lecturedatos.ObtenerDetallesLectureCo(IdCourse);
+            List<LectureModel> lists = lecturedatos.ListarLectures(IdCourse);
+            cursomodel.LectureList = lists;
 
             return View(cursomodel);
         }
-
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

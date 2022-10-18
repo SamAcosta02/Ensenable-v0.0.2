@@ -144,6 +144,36 @@ namespace Ensenable.Data
             }
             return oLista;
         }
+
+        public List<LectureModel> ListarLectures(int IdCourse)
+        {
+            var oLista = new List<LectureModel>();
+
+            var con = new Conexion();
+
+            NpgsqlCommand com = new NpgsqlCommand("fn_list_lectures_real", con.OpenCon());
+            com.Parameters.AddWithValue("id_course", IdCourse);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+
+            using (var dr = com.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    oLista.Add(new LectureModel()
+                    {
+                        IdLecture = Convert.ToInt32(dr["id_lecture"]),
+                        IdActivity = Convert.ToInt32(dr["id_activity"]),
+                        IdCourse = Convert.ToInt32(dr["id_course"]),
+                        NombreLecture = dr["nombre_lecture"].ToString(),
+                        YtLink = dr["yt_link"].ToString(),
+                        Purpose = dr["purpose"].ToString(),
+                        PreguntasApoyo = dr["preguntas_apoyo"].ToString(),
+                        Texto = dr["texto1"].ToString()
+                    });
+                }
+            }
+            return oLista;
+        }
     }
 
 }
